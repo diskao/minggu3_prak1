@@ -1,6 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PSController;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\SaranaController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +22,23 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/home', [HomeController::class, 'home']);
+
+Route::prefix('prodi')->group(function (){
+    Route::get('/Manajemen-Informatika', [PSController::class, 'MI']);
+    Route::get('/Teknik-Informatika', [PSController::class, 'TI']);
+});
+
+Route::get('/news/{id}', [NewsController::class, 'news']);
+
+Route::prefix('sarana')->group(function (){
+    Route::get('/perkantoran', [SaranaController::class, 'perkantoran']);
+    Route::get('/laboratorium', [SaranaController::class, 'laboratorium']);
+    Route::get('/kelas', [SaranaController::class, 'kelas']);
+    Route::get('/lainnya', [SaranaController::class, 'lainnya']);
+});
+
+Route::get('/about', [AboutController::class, 'about']);
+
+Route::get('/comment/{nama}/{pesan}', [CommentController::class, 'comment']);
