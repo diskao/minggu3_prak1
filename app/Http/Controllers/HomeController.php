@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function home() {
-        return "Selamat Datang di Halaman Website Jurusan Teknologi Informasi Politeknik Negeri Malang.";
+        return view ('home', ['name' => 'Selamat Datang di Halaman Website Jurusan Teknologi Informasi Politeknik Negeri Malang']);
     }
 }

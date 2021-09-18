@@ -13,5 +13,6 @@ class AboutController extends Controller
         Po.Box 04 Malang <br>
         Telepon : +62 (0341) 404424 – 404425 <br>
         Faks : +62 (0341) 404420<br>";
+        return view('about-us');
     }
 }
